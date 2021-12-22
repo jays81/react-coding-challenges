@@ -12,6 +12,7 @@ export default function Footer({ sendMessage, onChangeMessage, message }) {
   return (
     <div className="messages__footer">
       <input
+        value ={message}
         onKeyDown={onKeyDown}
         placeholder="Write a message..."
         id="user-message-input"
