@@ -55,7 +55,9 @@ function Messages() {
         isTyping: false
       };
 
-      stateRef.current.splice(objIndex, 1);
+      if(objIndex !== -1){
+        stateRef.current.splice(objIndex, 1);
+      }
       setLatestMessage(messageData.id, messageData.message);
       setMessageList((list) => [...list, messageData]);
       scrollToBottom();
@@ -112,9 +114,7 @@ function Messages() {
           if(message.isTyping){
             return <TypingMessage />
           }
-          if(message.message){
-            return <Message  message={message} />
-          }
+          return <Message  message={message} />
         })
       }
 
